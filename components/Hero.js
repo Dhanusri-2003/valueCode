@@ -6,13 +6,16 @@ export default function Hero() {
       <div className="container mx-auto px-4 text-center">
         {/* Main Heading */}
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-[var(--color-electric)] to-[var(--color-aqua)] bg-clip-text text-transparent leading-tight">
-          Transform Ideas Into AI-Powered Micro SaaS
+          Transform your challenges Into AI-Powered Micro SAAS
         </h1>
         
         {/* Subtitle */}
-        <p className="text-lg md:text-xl lg:text-2xl text-[var(--color-mutedgray)] max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed">
-          You define your vision, we design the solution. Launch intelligent, automated business tools in days, not months.
-        </p>
+<p className="text-lg md:text-xl lg:text-2xl text-[var(--color-mutedgray)] max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed">
+  You define, we design the solution
+  <br />
+  Lets build your AI team in weeks not months
+</p>
+       
         
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 md:mb-16">
@@ -20,11 +23,11 @@ export default function Hero() {
             href="/blueprint"
             className="btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 inline-block"
           >
-            Generate Your Blueprint ›
+            Generate Your free Blueprint ›
           </Link>
-          <button className="btn-secondary text-base md:text-lg px-6 md:px-8 py-3 md:py-4">
+          {/* <button className="btn-secondary text-base md:text-lg px-6 md:px-8 py-3 md:py-4">
             Watch Demo
-          </button>
+          </button> */}
         </div>
         
         {/* Trust Badge */}

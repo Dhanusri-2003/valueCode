@@ -1,28 +1,23 @@
+//  
 export default function Process() {
   const steps = [
-    {
+      {
       number: '1',
       icon: '🎯',
       title: 'Define Your Vision',
-      description: 'Share your business requirements and challenges. Our AI analyzes your needs to create the perfect solution blueprint.'
+      description: 'Our AI system understands your requirements, challenges, and improvement areas to generate a blueprint. The lean and value proposition canvas responses help our process engineering team align with development to create a robust AI system tailored for you.'
     },
     {
       number: '2',
       icon: '🤖',
-      title: 'Choose AI Agents',
-      description: 'Select from our library of specialized AI agents. We assemble your custom AI team tailored to your use case.'
+      title: 'Choose Your AI Agent',
+      description: 'Select from our robust AI agents designed for small businesses. We customize them and make multiple agents work as a team. Your choice dictates the success of your AI team. Custom AI agents are available as a premium offering.'
     },
     {
       number: '3',
-      icon: '🗺️',
-      title: 'Get Technical Blueprint',
-      description: 'Receive a detailed architecture plan with technology stack, timeline, and cost projections.'
-    },
-    {
-      number: '4',
-      icon: '🚀',
-      title: 'Launch & Scale',
-      description: 'We build and deploy your AI team incrementally. Start seeing value immediately while we expand functionality.'
+      icon: '🔐',
+      title: 'Get Your Workspace',
+      description: 'Value(ode provides a secure login hosted on the cloud with 99.9% uptime. The login features all the AI agents you have chosen. Our tech team configures the AI agents with your database and business tools, with virtual training provided.'
     }
   ];
 
@@ -32,15 +27,15 @@ export default function Process() {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-20">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--color-softwhite)] mb-4">
-            From Idea to Implementation in 4 Steps
+            How It Works
           </h2>
           <p className="text-lg md:text-xl text-[var(--color-mutedgray)] max-w-2xl mx-auto leading-relaxed">
-            Our streamlined process turns your vision into a fully-functional AI-powered application
+            Just 3 Steps
           </p>
         </div>
         
         {/* Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {steps.map((step, index) => (
             <div key={index} className="relative">
               <div className="bg-[var(--color-onyx)] rounded-xl p-6 md:p-8 text-center card-hover border border-[var(--color-onyx)] hover:border-[var(--color-electric)]/30 h-full">
