@@ -56,7 +56,8 @@ export default function ValueProps() {
     {
       icon: '🚀',
       title: 'Scale Smart',
-      description: 'Our workflows are very modular and our multi LLM stack (ChatGPT 4, Claude 3.5, Gemini 1.5, and Grok 2) helps to scale at your pace. You can add more agents that work as a team on demand and can choose to increase tokens for better performance.'
+      description: 'Our workflows are very modular and our multi LLM stack (ChatGPT , Claude , Gemini , and Grok ) helps to scale at your pace. You can add more agents that work as a team on demand and can choose to increase tokens for better performance.'
+     // description: 'Our workflows are very modular and our multi LLM stack (ChatGPT 4, Claude 3.5, Gemini 1.5, and Grok 2) helps to scale at your pace. You can add more agents that work as a team on demand and can choose to increase tokens for better performance.'
     },
     {
       icon: '🎯',
@@ -71,8 +72,9 @@ export default function ValueProps() {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-20">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--color-softwhite)] mb-4">
-            Modular, Scalable and Customizable
+             Ai automation Suite for Entrepreneurs and Consultants
           </h2>
+          <h1  className="text-lg md:text-3xl font-bold text-[var(--color-mutedgray)] max-w-2xl mx-auto leading-relaxed">Modular, Scalable and Customizable</h1>
           <p className="text-lg md:text-xl text-[var(--color-mutedgray)] max-w-2xl mx-auto leading-relaxed">
             Built on lean six sigma framework for maximum efficiency
           </p>

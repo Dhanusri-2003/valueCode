@@ -1,4 +1,4 @@
-import { Globe, Mail, Facebook, Instagram, Linkedin, MessageCircle, Youtube, DollarSign } from 'lucide-react';
+import { Globe, Mail, Facebook, Instagram, Linkedin, MessageCircle, Youtube, DollarSign, Twitter, Building } from 'lucide-react';
 
 /**
  * Account Setup Grid Component
@@ -6,11 +6,14 @@ import { Globe, Mail, Facebook, Instagram, Linkedin, MessageCircle, Youtube, Dol
  */
 export default function AccountSetupGrid({ data }) {
   const platformItems = [
+    { icon: <Building size={18} />, label: 'Business Type', value: data.businessType || 'Not specified' }, // NEW
     { icon: <Globe size={18} />, label: 'Website', value: data.hasWebsite ? 'Yes' : 'No' },
     { icon: <Mail size={18} />, label: 'Gmail', value: data.hasGmail ? 'Yes' : 'No' },
     { icon: <Facebook size={18} />, label: 'Facebook', value: data.hasFacebook ? 'Yes' : 'No' },
     { icon: <Instagram size={18} />, label: 'Instagram', value: data.hasInstagram ? 'Yes' : 'No' },
     { icon: <Linkedin size={18} />, label: 'LinkedIn', value: data.hasLinkedIn ? 'Yes' : 'No' },
+    { icon: <Twitter size={18} />, label: 'Twitter', value: data.hasTwitter ? 'Yes' : 'No' },
+    { icon: <MessageCircle size={18} />, label: 'WhatsApp', value: data.hasWhatsApp ? 'Yes' : 'No' },
     { icon: <MessageCircle size={18} />, label: 'Pinterest', value: data.hasPinterest ? 'Yes' : 'No' },
     { icon: <Youtube size={18} />, label: 'Youtube', value: data.hasYoutube ? 'Yes' : 'No' },
     { icon: <DollarSign size={18} />, label: 'Monthly Ad Spend', value: data.monthlyAdSpend || 'Not specified' }

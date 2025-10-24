@@ -1,116 +1,179 @@
+// import { NextResponse } from 'next/server';
+// import nodemailer from 'nodemailer';
+
+// export async function POST(request) {
+//   try {
+//     const { userEmail, companyName, pdfBase64 } = await request.json();
+
+//     if (!userEmail) {
+//       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+//     }
+
+//     if (!pdfBase64) {
+//       return NextResponse.json({ error: 'PDF data is required' }, { status: 400 });
+//     }
+
+//     // Create email transporter
+//     const transporter = nodemailer.createTransport({
+//       service: 'gmail',
+//       auth: {
+//         user: 'skdhanusri123@gmail.com',
+//         pass: process.env.GMAIL_APP_PASSWORD,
+//       },
+//     });
+
+//     // Send email with PDF attachment
+//     await transporter.sendMail({
+//       from: '"ValueCode AI" <skdhanusri123@gmail.com>',
+//       to: userEmail,
+//       subject: '🚀 Your AI SaaS Blueprint PDF is Ready!',
+//       html: `
+//         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+//           <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+//             <h1 style="margin: 0;">🚀 Your AI SaaS Blueprint is Ready!</h1>
+//             <p style="margin: 10px 0 0 0; opacity: 0.9;">Complete Application Development Plan</p>
+//           </div>
+          
+//           <div style="padding: 30px; background: #f8f9fa;">
+//             <p>Hi there,</p>
+//             <p>Your custom AI SaaS application blueprint has been generated and is attached to this email as a PDF file.</p>
+            
+//             ${companyName ? `<p><strong>Project:</strong> ${companyName}</p>` : ''}
+            
+//             <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+//               <h3 style="color: #667eea; margin-top: 0;">📎 What's in your blueprint PDF:</h3>
+//               <ul>
+//                 <li>Complete visual layout with all design elements and emojis</li>
+//                 <li>Requested features and requirements</li>
+//                 <li>Technology stack recommendations</li>
+//                 <li>4-week implementation timeline</li>
+//                 <li>Strategic AI-powered recommendations</li>
+//                 <li>Account setup requirements</li>
+//                 <li>Platform integration details</li>
+//               </ul>
+//             </div>
+
+//             <p><strong>Attachment:</strong> <code>ai-saas-blueprint.pdf</code></p>
+            
+//             <p>Simply download the attached PDF file to view your complete blueprint.</p>
+            
+//             <p>Ready to bring your AI vision to life? Reply to this email to get started!</p>
+            
+//             <p style="color: #666; font-size: 14px; margin-top: 30px;">
+//               Sent from ValueCode AI Platform<br>
+//               Email: skdhanusri123@gmail.com
+//             </p>
+//           </div>
+//         </div>
+//       `,
+//       attachments: [
+//         {
+//           filename: 'ai-saas-blueprint.pdf',
+//           content: pdfBase64,
+//           encoding: 'base64',
+//           contentType: 'application/pdf'
+//         }
+//       ]
+//     });
+
+//     return NextResponse.json({ 
+//       success: true, 
+//       message: 'Email with PDF attachment sent successfully!' 
+//     });
+
+//   } catch (error) {
+//     console.error('Email error:', error);
+//     return NextResponse.json({ 
+//       error: 'Failed to send email: ' + error.message 
+//     }, { status: 500 });
+//   }
+// }
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(request) {
   try {
-    const { userEmail, blueprintData } = await request.json();
+    const { userEmail, companyName, pdfBase64 } = await request.json();
 
-    // Create email transporter with YOUR Gmail - FIXED FUNCTION NAME
+    if (!userEmail) {
+      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+    }
+
+    if (!pdfBase64) {
+      return NextResponse.json({ error: 'PDF data is required' }, { status: 400 });
+    }
+
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'skdhanusri123@gmail.com', // Your Gmail
-        pass: process.env.GMAIL_APP_PASSWORD, // App password
+        user: 'skdhanusri123@gmail.com',
+        pass: process.env.GMAIL_APP_PASSWORD,
       },
     });
 
-    const blueprintContent = generateBlueprintContent(blueprintData);
-
-    // Send email from YOUR Gmail
     await transporter.sendMail({
       from: '"ValueCode AI" <skdhanusri123@gmail.com>',
       to: userEmail,
-      subject: '🚀 Your AI SaaS Blueprint is Ready!',
-      html: generateEmailTemplate(blueprintData),
+      subject: '🚀 Your AI SaaS Blueprint PDF is Ready!',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+            <h1 style="margin: 0;">🚀 Your AI SaaS Blueprint is Ready!</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Complete Application Development Plan</p>
+          </div>
+          
+          <div style="padding: 30px; background: #f8f9fa;">
+            <p>Hi there,</p>
+            <p>Your custom AI SaaS application blueprint has been generated and is attached to this email as a PDF file.</p>
+            
+            ${companyName ? `<p><strong>Project:</strong> ${companyName}</p>` : ''}
+            
+            <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+              <h3 style="color: #667eea; margin-top: 0;">📎 What's included in your blueprint PDF:</h3>
+              <ul>
+                <li>Complete visual layout with all design elements and emojis</li>
+                <li>Requested features and requirements</li>
+                <li>Current challenges and improvements</li>
+                <li>Technology stack recommendations</li>
+                <li>4-week implementation timeline</li>
+                <li>Strategic AI-powered recommendations</li>
+                <li>Account setup requirements</li>
+                <li>Platform integration details</li>
+              </ul>
+            </div>
+
+            <p><strong>Attachment:</strong> <code>ai-saas-blueprint.pdf</code></p>
+            
+            <p>Simply download the attached PDF file to view your complete blueprint.</p>
+            
+            <p>Ready to bring your AI vision to life? Reply to this email to get started!</p>
+            
+            <p style="color: #666; font-size: 14px; margin-top: 30px;">
+              Sent from ValueCode AI Platform<br>
+              Email: skdhanusri123@gmail.com
+            </p>
+          </div>
+        </div>
+      `,
       attachments: [
         {
-          filename: 'ai-saas-blueprint.txt',
-          content: blueprintContent,
-        },
-      ],
+          filename: 'ai-saas-blueprint.pdf',
+          content: pdfBase64,
+          encoding: 'base64',
+          contentType: 'application/pdf'
+        }
+      ]
     });
 
-    return NextResponse.json({ success: true, message: 'Email sent successfully from your Gmail!' });
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Email with PDF attachment sent successfully!' 
+    });
 
   } catch (error) {
     console.error('Email error:', error);
-    return NextResponse.json({ error: 'Failed to send email: ' + error.message }, { status: 500 });
+    return NextResponse.json({ 
+      error: 'Failed to send email: ' + error.message 
+    }, { status: 500 });
   }
-}
-
-function generateBlueprintContent(blueprintData) {
-  return `
-AI SaaS APPLICATION BLUEPRINT
-==============================
-
-PROJECT DETAILS:
-• Features: ${blueprintData.features.length}
-• Challenges: ${blueprintData.challenges.length} 
-• Improvements: ${blueprintData.improvements.length}
-
-REQUESTED FEATURES:
-${blueprintData.features.map((f, i) => `${i+1}. ${f}`).join('\n')}
-
-CURRENT CHALLENGES:
-${blueprintData.challenges.map((c, i) => `${i+1}. ${c}`).join('\n')}
-
-NEEDS IMPROVEMENT:
-${blueprintData.improvements.map((i, idx) => `${idx+1}. ${i}`).join('\n')}
-
-IMPLEMENTATION TIMELINE:
-• Week 1: Discovery & Planning
-• Week 2: Development
-• Week 3: AI Integration  
-• Week 4: Testing & Launch
-
-TECHNOLOGY STACK:
-• React Frontend
-• Node.js Backend
-• AI APIs
-• Database Integration
-
-Generated by ValueCode AI Platform
-  `;
-}
-
-function generateEmailTemplate(blueprintData) {
-  return `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-    <h1 style="margin: 0;">🚀 Your AI SaaS Blueprint is Ready!</h1>
-    <p style="margin: 10px 0 0 0; opacity: 0.9;">Custom AI Application Development Plan</p>
-  </div>
-  
-  <div style="padding: 30px; background: #f8f9fa;">
-    <p>Hi there,</p>
-    <p>Your custom AI SaaS application blueprint has been generated and is attached to this email.</p>
-    
-    <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
-      <h3 style="color: #667eea; margin-top: 0;">📋 Project Summary</h3>
-      <p><strong>Features Requested:</strong> ${blueprintData.features.length}</p>
-      <p><strong>Challenges Identified:</strong> ${blueprintData.challenges.length}</p>
-      <p><strong>Improvement Areas:</strong> ${blueprintData.improvements.length}</p>
-      <p><strong>Implementation Timeline:</strong> 4 Weeks</p>
-    </div>
-
-    <h3>📎 What's included in your blueprint:</h3>
-    <ul>
-      <li>Detailed feature specifications</li>
-      <li>Current challenges analysis</li>
-      <li>Improvement recommendations</li>
-      <li>Technology stack</li>
-      <li>4-week implementation timeline</li>
-    </ul>
-
-    <p>The complete blueprint is attached as a text file with all the details.</p>
-    
-    <p>Ready to bring your AI vision to life? Reply to this email to get started!</p>
-    
-    <p style="color: #666; font-size: 14px; margin-top: 30px;">
-      Sent from ValueCode AI Platform<br>
-      Email: skdhanusri123@gmail.com
-    </p>
-  </div>
-</div>
-  `;
 }
