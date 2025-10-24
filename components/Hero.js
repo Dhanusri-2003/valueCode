@@ -15,7 +15,7 @@ export default function Hero() {
 <p className="text-lg md:text-xl lg:text-2xl text-[var(--color-mutedgray)] max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed">
   You define, we design
   <br />
-  Lets build your AI team in weeks not months
+  Lets build your AI team to outperform
 </p>
        
         
