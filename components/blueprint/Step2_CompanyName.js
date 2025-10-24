@@ -3,7 +3,7 @@ export default function Step2_CompanyName({ formData, setFormData, nextStep, pre
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       <div className="text-center mb-8">
-        <div className="text-sm text-[var(--color-electric)] mb-2">Question 2 of 6 • 33%</div>
+        <div className="text-sm text-[var(--color-electric)] mb-2">Question 1 of 6 • 17%</div>
         <h2 className="text-2xl font-bold">What is the name of your company?*</h2>
       </div>
 

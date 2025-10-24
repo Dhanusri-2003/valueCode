@@ -181,7 +181,7 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep }) {
       {/* Header - Progress centered, title centered */}
       <div className="text-center mb-2">
         <div className="text-sm text-[var(--color-electric)] font-semibold mt-10">
-          Question 1 of 6 • 17%
+          Question 2 of 6 • 33%
         </div>
       </div>
       <div className="text-center mb-10"> {/* Title centered */}
@@ -330,10 +330,10 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep }) {
                        transition duration-200 hover:border-[var(--color-electric)] cursor-pointer"
           >
             <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="NIL">NIL</option>
-            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="1000-3000">1,000 - 3,000</option>
-            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="3000-6000">3,000 - 6,000</option>
+            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="1000-6000">1,000 - 6,000</option>
             <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="6000-9000">6,000 - 9,000</option>
-            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="10000+">&gt;10,000</option>
+            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="9000-20000">9,000 - 20,000</option>
+            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="20000+">&gt;20,000</option>
           </select>
         </div>
       </div>

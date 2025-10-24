@@ -714,43 +714,52 @@ export default function Step6_Email({ formData, setFormData, prevStep, isSubmitt
     }
   };
 
+  // Generate PDF with reduced size
   const generatePDF = async () => {
     if (!pdfRef.current) {
       throw new Error('PDF content not found');
     }
 
     const canvas = await html2canvas(pdfRef.current, {
-      scale: 1.5,
+      scale: 0.8, // Reduced from 1.5 to 0.8
       useCORS: true,
       backgroundColor: '#0a0f1e',
       logging: false,
+      quality: 0.7, // Reduce quality
+      width: pdfRef.current.scrollWidth,
+      height: pdfRef.current.scrollHeight,
     });
 
     const imgWidth = 210;
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
     
     const pdf = new jsPDF('p', 'mm', 'a4');
-    pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, imgWidth, imgHeight);
+    
+    // Use JPEG with compression instead of PNG
+    const imgData = canvas.toDataURL('image/jpeg', 0.7);
+    pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
     
     return pdf;
   };
 
+  // Send email with FormData instead of JSON
   const handleSendEmail = async () => {
     setIsSendingEmail(true);
     try {
       const pdf = await generatePDF();
-      const pdfBase64 = pdf.output('datauristring').split(',')[1];
       
+      // Convert PDF to blob instead of base64
+      const pdfBlob = pdf.output('blob');
+      
+      // Use FormData instead of JSON
+      const formDataToSend = new FormData();
+      formDataToSend.append('userEmail', formData.email);
+      formDataToSend.append('companyName', formData.companyName || 'Your Project');
+      formDataToSend.append('pdfFile', pdfBlob, 'ai-saas-blueprint.pdf');
+
       const response = await fetch('/api/send-blueprint', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userEmail: formData.email,
-          companyName: formData.companyName || 'Your Project',
-          pdfBase64: pdfBase64,
-        }),
+        body: formDataToSend, // No Content-Type header for FormData
       });
 
       const result = await response.json();
@@ -768,6 +777,7 @@ export default function Step6_Email({ formData, setFormData, prevStep, isSubmitt
     }
   };
 
+  // Blueprint Success View
   if (showBlueprint && submissionData) {
     return (
       <>
@@ -1088,7 +1098,7 @@ export default function Step6_Email({ formData, setFormData, prevStep, isSubmitt
                   disabled={isSendingEmail}
                   className="border border-[var(--color-electric)] text-[var(--color-electric)] px-8 py-3 rounded-lg font-semibold hover:bg-[var(--color-electric)] hover:text-[var(--color-midnight)] disabled:opacity-50 transition-colors"
                 >
-                  {isSendingEmail ? '📨 Generating PDF...' : '📩 Send Blueprint PDF via Email'}
+                  {isSendingEmail ? '📨 Sending PDF...' : '📩 Send Blueprint PDF via Email'}
                 </button>
               </div>
               <p className="text-[var(--color-mutedgray)] text-sm mt-2">
@@ -1101,7 +1111,7 @@ export default function Step6_Email({ formData, setFormData, prevStep, isSubmitt
     );
   }
 
-  // Email Form View (keep your original)
+  // Email Form View
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       <div className="text-center mb-8">

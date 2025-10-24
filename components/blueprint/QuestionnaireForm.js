@@ -100,8 +100,8 @@ export default function QuestionnaireForm() {
     };
     
     switch(currentStep) {
-      case 1: return <Step1_Checkboxes {...commonProps} />;
-      case 2: return <Step2_CompanyName {...commonProps} />;
+      case 1: return <Step2_CompanyName {...commonProps} />;
+      case 2: return <Step1_Checkboxes {...commonProps} />;
       case 3: return <Step3_Features {...commonProps} />;
       case 4: return <Step4_Challenges {...commonProps} />;
       case 5: return <Step5_Improvements {...commonProps} />;

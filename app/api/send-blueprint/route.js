@@ -93,16 +93,20 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request) {
   try {
-    const { userEmail, companyName, pdfBase64 } = await request.json();
+    const formData = await request.formData();
+    const userEmail = formData.get('userEmail');
+    const companyName = formData.get('companyName');
+    const pdfFile = formData.get('pdfFile');
 
     if (!userEmail) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
-    if (!pdfBase64) {
-      return NextResponse.json({ error: 'PDF data is required' }, { status: 400 });
+    if (!pdfFile) {
+      return NextResponse.json({ error: 'PDF file is required' }, { status: 400 });
     }
 
+    // Create email transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -110,6 +114,9 @@ export async function POST(request) {
         pass: process.env.GMAIL_APP_PASSWORD,
       },
     });
+
+    // Convert file to buffer
+    const pdfBuffer = Buffer.from(await pdfFile.arrayBuffer());
 
     await transporter.sendMail({
       from: '"ValueCode AI" <skdhanusri123@gmail.com>',
@@ -158,8 +165,7 @@ export async function POST(request) {
       attachments: [
         {
           filename: 'ai-saas-blueprint.pdf',
-          content: pdfBase64,
-          encoding: 'base64',
+          content: pdfBuffer,
           contentType: 'application/pdf'
         }
       ]
