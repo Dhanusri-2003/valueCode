@@ -139,7 +139,7 @@
 // }
 import { Lightbulb, Mail, Facebook, Instagram, Linkedin, Rss, Youtube, DollarSign, Twitter, MessageCircle } from 'lucide-react';
 
-export default function Step1_Checkboxes({ formData, setFormData, nextStep }) {
+export default function Step1_Checkboxes({ formData, setFormData, nextStep, prevStep }) {
   // Defensive check: ensure formData is an object or default to an empty object for safety
   const data = formData || {}; 
     
@@ -338,7 +338,7 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep }) {
         </div>
       </div>
       {/* Next Button - Centered */}
-      <div className="flex justify-center mt-12">
+      {/* <div className="flex justify-center mt-12">
         <button 
           onClick={nextStep}
           className="
@@ -350,7 +350,16 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep }) {
         >
           Next
         </button>
+      </div> */}
+  <div className="flex justify-between">
+        <button onClick={prevStep} className="text-[var(--color-mutedgray)] hover:text-[var(--color-electric)]">Back</button>
+        <button 
+          onClick={nextStep}
+          disabled={!formData.companyName.trim()}
+          className="btn-primary px-6 py-2 disabled:opacity-50"
+        >Next</button>
       </div>
+      
     </div>
   );
 }

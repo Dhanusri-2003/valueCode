@@ -1,6 +1,11 @@
 // components/blueprint/Step2_CompanyName.js
 export default function Step2_CompanyName({ formData, setFormData, nextStep, prevStep }) {
+    const handleBack = () => {
+    // Go to homepage instead of previous step
+    window.location.href = '/';
+  };
   return (
+    
     <div className="max-w-2xl mx-auto px-4 py-8">
       <div className="text-center mb-8">
         <div className="text-sm text-[var(--color-electric)] mb-2">Question 1 of 6 • 17%</div>
@@ -18,7 +23,7 @@ export default function Step2_CompanyName({ formData, setFormData, nextStep, pre
       </div>
 
       <div className="flex justify-between">
-        <button onClick={prevStep} className="text-[var(--color-mutedgray)] hover:text-[var(--color-electric)]">Back</button>
+        <button onClick={handleBack} className="text-[var(--color-mutedgray)] hover:text-[var(--color-electric)]">Back</button>
         <button 
           onClick={nextStep}
           disabled={!formData.companyName.trim()}

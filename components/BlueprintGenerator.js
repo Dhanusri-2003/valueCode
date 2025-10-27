@@ -144,7 +144,7 @@ export default function BlueprintGenerator() {
                   </select>
                 </div>
               </div>
-
+            
               {/* Additional Requirements */}
               <div>
                 <label className="block text-[var(--color-softwhite)] font-semibold mb-3 text-lg">
