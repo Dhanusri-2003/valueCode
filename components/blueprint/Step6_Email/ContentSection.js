@@ -13,7 +13,7 @@ export default function ContentSection({ title, items, icon, colorClass, indexCo
         {items.map((item, index) => (
           <li key={index} className="flex items-start">
             <strong className={`${indexColorClass} mr-2`}>{index + 1}.</strong>
-            <span className="text-[var(--color-softwhite)]">{item}</span>
+            <span className="text-[#3E2723]">{item}</span>
           </li>
         ))}
       </ul>

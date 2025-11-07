@@ -1,56 +1,38 @@
-/**
- * Timeline Phase Component
- * Displays individual timeline phases
- */
-// export default function TimelinePhase({ title, duration, items, rightAlign = false }) {
-//   return (
-//     <div className="relative mb-8">
-//       <h3 className="text-lg font-bold text-[var(--color-softwhite)] mb-2">{title}</h3>
-//       <span className={`absolute top-0 ${rightAlign ? 'right-4' : 'right-0'} text-[var(--color-electric)] font-semibold`}>
-//         {duration}
-//       </span>
-//       <ul className="space-y-1 text-[var(--color-softwhite)]">
-//         {items.map((item, index) => (
-//           <li key={index}>{item}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
 export default function TimelinePhase({ title, duration, items, rightAlign = false }) {
   return (
-    <div className={`relative mb-6 ${rightAlign ? 'text-right' : 'text-left'}`}>
-      {/* Thin Gradient Border */}
+    <div className={`relative mb-8 ${rightAlign ? 'text-right' : 'text-left'}`}>
+      {/* Gradient Background Card */}
       <div className={`
-        relative p-[1px] rounded-lg bg-gradient-to-r from-[var(--color-electric)] to-purple-500
+        relative p-4 rounded-xl bg-gradient-to-br from-[#F5F0ED] to-[#f0e6df]
+        border border-[#8B7355]/30 shadow-lg
         ${rightAlign ? 'ml-8' : 'mr-8'}
-        hover:from-[var(--color-electric)] hover:to-pink-500 transition-all duration-300
+        hover:shadow-[#8B7355]/10 hover:shadow-xl transition-all duration-300
       `}>
-        <div className="bg-[var(--color-midnight)] rounded-lg p-4">
-          
-          {/* Clean Header */}
-          <div className="flex justify-between items-center mb-3">
-            <h3 className="text-base font-semibold text-[var(--color-softwhite)]">
+        
+        {/* Header with Icon */}
+        <div className="flex justify-between items-start mb-4">
+          <div className="flex items-center gap-2">
+            <h3 className="text-lg font-bold text-[#3E2723]">
               {title}
             </h3>
-            <span className="text-xs text-[var(--color-electric)] font-medium">
-              {duration}
-            </span>
           </div>
-
-          {/* Minimal Items */}
-          <ul className="space-y-1">
-            {items.map((item, index) => (
-              <li 
-                key={index} 
-                className="text-[var(--color-softwhite)]/70 text-xs leading-relaxed"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+          <span className="text-sm text-[#8B7355] font-semibold bg-[#8B7355]/10 px-3 py-1 rounded-full">
+            {duration}
+          </span>
         </div>
+
+        {/* Items with Bullets */}
+        <ul className="space-y-2">
+          {items.map((item, index) => (
+            <li 
+              key={index} 
+              className="flex items-start gap-3 text-[#5D4037] text-sm leading-relaxed"
+            >
+              <span className="text-[#8B7355] mt-1">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

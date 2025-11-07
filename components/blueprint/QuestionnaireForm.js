@@ -111,7 +111,7 @@ export default function QuestionnaireForm() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-midnight)] text-white">
+    <div className="min-h-screen bg-[#F5F0ED] text-[#3E2723]">
       {renderStep()}
     </div>
   );

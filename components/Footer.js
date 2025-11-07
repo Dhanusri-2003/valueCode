@@ -30,14 +30,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer id= "about" className="bg-[var(--color-onyx)] border-t border-[var(--color-midnight)] py-12 md:py-16">
+    <footer id="about" className="bg-[#6D4C41] border-t border-[#5D4037] py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-8 md:mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h4 className="text-2xl font-bold text-[var(--color-electric)] mb-4">Value(ode</h4>
-            <p className="text-[var(--color-mutedgray)] mb-4">AI Powered Micro SaaS Solutions</p>
-            <p className="text-[var(--color-mutedgray)] text-sm md:text-base">
+            <h4 className="text-2xl font-bold text-[#D7A86E] mb-4">Value(ode</h4>
+            <p className="text-[#F5F0ED] mb-4">AI Powered Micro SaaS Solutions</p>
+            <p className="text-[#F5F0ED] text-sm md:text-base">
               Scale smarter, operate leaner with intelligent automation built on Lean principles.
             </p>
           </div>
@@ -45,13 +45,13 @@ export default function Footer() {
           {/* Dynamic Sections */}
           {sections.map((section, index) => (
             <div key={index}>
-              <h5 className="text-[var(--color-softwhite)] font-semibold mb-3 md:mb-4 text-lg">{section.title}</h5>
+              <h5 className="text-white font-semibold mb-3 md:mb-4 text-lg">{section.title}</h5>
               <div className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <a
                     key={linkIndex}
                     href={link.href}
-                    className="block text-[var(--color-mutedgray)] hover:text-[var(--color-electric)] transition-colors text-sm md:text-base"
+                    className="block text-[#F5F0ED] hover:text-[#D7A86E] transition-colors text-sm md:text-base"
                   >
                     {link.label}
                   </a>
@@ -62,8 +62,8 @@ export default function Footer() {
         </div>
         
         {/* Bottom */}
-        <div className="border-t border-[var(--color-midnight)] pt-6 md:pt-8 text-center">
-          <p className="text-[var(--color-mutedgray)] text-sm md:text-base">
+        <div className="border-t border-[#5D4037] pt-6 md:pt-8 text-center">
+          <p className="text-[#F5F0ED] text-sm md:text-base">
             &copy; 2024 Value(ode. Built with React, n8n & Supabase.
           </p>
         </div>

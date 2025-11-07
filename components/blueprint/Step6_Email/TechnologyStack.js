@@ -16,12 +16,12 @@ export default function TechnologyStack() {
 
   return (
     <div className="mb-10">
-      <h2 className="text-xl font-semibold text-[var(--color-softwhite)] mb-4">Recommended Technology Stack</h2>
+      <h2 className="text-xl font-semibold text-[#3E2723] mb-4">Recommended Technology Stack</h2>
       <div className="flex flex-wrap gap-3">
         {technologies.map((tech, index) => (
           <span 
             key={index} 
-            className="bg-[var(--color-midnight)] text-[var(--color-electric)] px-4 py-2 rounded-full text-sm font-medium border border-[var(--color-electric)]/30"
+            className="bg-[#F5F0ED] text-[#8B7355] px-4 py-2 rounded-full text-sm font-medium border border-[#8B7355]/50"
           >
             {tech}
           </span>

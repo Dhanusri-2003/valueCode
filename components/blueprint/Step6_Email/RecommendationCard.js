@@ -9,7 +9,7 @@ export default function RecommendationCard({ title, description, icon, bgColor, 
         <span className={`${textColor} text-lg mr-2`}>{icon}</span>
         <h4 className={`font-bold ${textColor}`}>{title}</h4>
       </div>
-      <p className="text-[var(--color-mutedgray)] text-sm">
+      <p className="text-[#5D4037] text-sm">
         {description}
       </p>
     </div>

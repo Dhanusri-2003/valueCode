@@ -25,16 +25,15 @@ export default function AgentsPreview() {
       features: ['Invoice processing', 'Expense categorization', 'Financial reporting']
     }
   ];
-
   return (
-    <section id ="AgentsPreview" className="py-16 md:py-24 bg-[var(--color-onyx)]">
+    <section id="AgentsPreview" className="py-16 md:py-24 bg-[#F5F0ED]">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--color-softwhite)] mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#3E2723] mb-4">
             Meet Your AI Team
           </h2>
-          <p className="text-lg md:text-xl text-[var(--color-mutedgray)] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-[#5D4037] max-w-2xl mx-auto leading-relaxed">
             Specialized agents ready to automate your workflows and 2x your productivity
           </p>
         </div>
@@ -42,21 +41,21 @@ export default function AgentsPreview() {
         {/* Agents Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {agents.map((agent, index) => (
-            <div key={index} className="bg-[var(--color-midnight)] rounded-xl p-6 md:p-8 card-hover border border-[var(--color-onyx)] hover:border-[var(--color-electric)]/50">
+            <div key={index} className="bg-white rounded-xl p-6 md:p-8 border border-[#D7CCC8] hover:border-[#8B7355] hover:shadow-2xl hover:shadow-[#8B7355]/20 transition-all duration-300">
               {/* Agent Icon */}
               <div className="text-3xl md:text-4xl mb-4 md:mb-6">{agent.icon}</div>
               
               {/* Agent Title */}
-              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-electric)] mb-3 md:mb-4">{agent.title}</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-[#8B7355] mb-3 md:mb-4">{agent.title}</h3>
               
               {/* Agent Description */}
-              <p className="text-[var(--color-mutedgray)] mb-4 md:mb-6 text-sm md:text-base">{agent.description}</p>
+              <p className="text-[#5D4037] mb-4 md:mb-6 text-sm md:text-base">{agent.description}</p>
               
               {/* Features List */}
               <ul className="space-y-2 md:space-y-3">
                 {agent.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-[var(--color-mutedgray)] text-xs md:text-sm">
-                    <span className="text-[var(--color-aqua)] mr-2 md:mr-3">✓</span>
+                  <li key={featureIndex} className="flex items-center text-[#5D4037] text-xs md:text-sm">
+                    <span className="text-[#D7A86E] mr-2 md:mr-3">✓</span>
                     {feature}
                   </li>
                 ))}
@@ -67,7 +66,7 @@ export default function AgentsPreview() {
         
         {/* CTA Button */}
         <div className="text-center mt-8 md:mt-12">
-          <a href="/agent-store" className="btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 inline-block">
+          <a href="/agent-store" className="bg-[#8B7355] text-white text-base md:text-lg px-6 md:px-8 py-3 md:py-4 inline-block rounded-md hover:bg-[#6D4C41] transition-colors duration-300 font-semibold">
             Explore All Agents
           </a>
         </div>

@@ -177,40 +177,40 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep, prev
   ];
 
   return (
-    <div className="px-8 max-w-4xl mx-auto"> {/* Centered container with max width */}
+    <div className="px-8 max-w-4xl mx-auto">
       {/* Header - Progress centered, title centered */}
       <div className="text-center mb-2">
-        <div className="text-sm text-[var(--color-electric)] font-semibold mt-10">
+        <div className="text-sm text-[#8B7355] font-semibold mt-10">
           Question 2 of 6 • 33%
         </div>
       </div>
-      <div className="text-center mb-10"> {/* Title centered */}
-        <h2 className="text-3xl font-extrabold text-[var(--color-softwhite)]">Tell us about your business</h2>
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-extrabold text-[#3E2723]">Tell us about your business</h2>
       </div>
 
       {/* Business Type Section - Centered with moderate width */}
       <div className="mb-8 flex justify-center">
-        <div className="inline-flex flex-wrap items-center gap-4 bg-[var(--color-midnight)] rounded-xl px-8 py-4 shadow-inner border border-gray-700 max-w-2xl">
-          <h3 className="text-lg font-semibold text-[var(--color-softwhite)] whitespace-nowrap">
+        <div className="inline-flex flex-wrap items-center gap-4 bg-white rounded-xl px-8 py-4 shadow-inner border border-[#D7CCC8] max-w-2xl">
+          <h3 className="text-lg font-semibold text-[#3E2723] whitespace-nowrap">
             Business type:
           </h3>
 
           <select
             value={data.businessType || ''}
             onChange={handleBusinessTypeChange}
-            className="px-4 py-2 text-base rounded-lg focus:outline-none focus:ring-1 
-                       focus:ring-[var(--color-electric)] text-[var(--color-softwhite)] 
-                       bg-[var(--color-onyx)] border border-gray-600 font-medium 
-                       transition duration-200 hover:border-[var(--color-electric)] cursor-pointer min-w-[200px]"
+            className="px-4 py-2 text-base rounded-lg focus:outline-none focus:ring-2 
+                       focus:ring-[#8B7355] text-[#3E2723] 
+                       bg-white border border-[#D7CCC8] font-medium 
+                       transition duration-200 hover:border-[#8B7355] cursor-pointer min-w-[200px]"
           >
-            <option value="" className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]">
+            <option value="" className="bg-white text-[#5D4037]">
               Select business type
             </option>
             {businessTypeOptions.map((type) => (
               <option 
                 key={type} 
                 value={type}
-                className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]"
+                className="bg-white text-[#5D4037]"
               >
                 {type}
               </option>
@@ -222,7 +222,7 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep, prev
       {/* Checkbox Section - Centered with balanced two lines */}
       <div className="mb-12">
         <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-[var(--color-softwhite)]">Select if Applicable:</h3>
+          <h3 className="text-2xl font-bold text-[#3E2723]">Select if Applicable:</h3>
         </div>
         
         {/* First Line - 5 items centered */}
@@ -237,8 +237,8 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep, prev
                       className={`
                           flex items-center space-x-2 cursor-pointer p-3 rounded-xl transition-all duration-300 border
                           ${isChecked 
-                              ? 'bg-[var(--color-electric)]/10 border-[var(--color-electric)] text-[var(--color-electric)] shadow-lg shadow-[var(--color-electric)]/20'
-                              : 'bg-transparent border-[var(--color-white)]/30 text-[var(--color-mutedgray)] hover:border-[var(--color-electric)]' 
+                              ? 'bg-[#8B7355]/10 border-[#8B7355] text-[#8B7355] shadow-lg shadow-[#8B7355]/20'
+                              : 'bg-transparent border-[#D7CCC8] text-[#5D4037] hover:border-[#8B7355]' 
                           }
                       `}
                   >
@@ -249,8 +249,8 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep, prev
                           className={`
                               w-5 h-5 rounded-md border-2 appearance-none 
                               ${isChecked 
-                                  ? 'bg-[var(--color-electric)] border-[var(--color-electric)] checked:bg-[var(--color-electric)] checked:border-[var(--color-electric)]'
-                                  : 'bg-[var(--color-midnight)] border-[var(--color-white)]' 
+                                  ? 'bg-[#8B7355] border-[#8B7355] checked:bg-[#8B7355] checked:border-[#8B7355]'
+                                  : 'bg-white border-[#A1887F]' 
                               }
                               transition duration-300
                           `}
@@ -281,8 +281,8 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep, prev
                       className={`
                           flex items-center space-x-2 cursor-pointer p-3 rounded-xl transition-all duration-300 border
                           ${isChecked 
-                              ? 'bg-[var(--color-electric)]/10 border-[var(--color-electric)] text-[var(--color-electric)] shadow-lg shadow-[var(--color-electric)]/20'
-                              : 'bg-transparent border-[var(--color-white)]/30 text-[var(--color-mutedgray)] hover:border-[var(--color-electric)]' 
+                              ? 'bg-[#8B7355]/10 border-[#8B7355] text-[#8B7355] shadow-lg shadow-[#8B7355]/20'
+                              : 'bg-transparent border-[#D7CCC8] text-[#5D4037] hover:border-[#8B7355]' 
                           }
                       `}
                   >
@@ -293,8 +293,8 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep, prev
                           className={`
                               w-5 h-5 rounded-md border-2 appearance-none 
                               ${isChecked 
-                                  ? 'bg-[var(--color-electric)] border-[var(--color-electric)] checked:bg-[var(--color-electric)] checked:border-[var(--color-electric)]'
-                                  : 'bg-[var(--color-midnight)] border-[var(--color-white)]' 
+                                  ? 'bg-[#8B7355] border-[#8B7355] checked:bg-[#8B7355] checked:border-[#8B7355]'
+                                  : 'bg-white border-[#A1887F]' 
                               }
                               transition duration-300
                           `}
@@ -314,52 +314,41 @@ export default function Step1_Checkboxes({ formData, setFormData, nextStep, prev
         </div>
       </div>
 
-            {/* Budget Section - Original layout with dropdown on same line */}
+      {/* Budget Section - Original layout with dropdown on same line */}
       <div className="mb-8 flex justify-center">
-        <div className="inline-flex flex-wrap items-center gap-4 bg-[var(--color-midnight)] rounded-xl px-6 py-4 shadow-inner border border-gray-700">
-          <h3 className="text-lg font-semibold text-[var(--color-softwhite)] whitespace-nowrap">
+        <div className="inline-flex flex-wrap items-center gap-4 bg-white rounded-xl px-6 py-4 shadow-inner border border-[#D7CCC8]">
+          <h3 className="text-lg font-semibold text-[#3E2723] whitespace-nowrap">
             How much you spend on Google ads/Social ads per month:
           </h3>
 
           <select
             value={data.monthlyAdSpend || 'NIL'}
             onChange={handleBudgetChange}
-            className="px-4 py-2 text-base rounded-lg focus:outline-none focus:ring-1 
-                       focus:ring-[var(--color-electric)] text-[var(--color-softwhite)] 
-                       bg-[var(--color-onyx)] border border-gray-600 font-medium 
-                       transition duration-200 hover:border-[var(--color-electric)] cursor-pointer"
+            className="px-4 py-2 text-base rounded-lg focus:outline-none focus:ring-2 
+                       focus:ring-[#8B7355] text-[#3E2723] 
+                       bg-white border border-[#D7CCC8] font-medium 
+                       transition duration-200 hover:border-[#8B7355] cursor-pointer"
           >
-            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="NIL">NIL</option>
-            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="1000-6000">1,000 - 6,000</option>
-            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="6000-9000">6,000 - 9,000</option>
-            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="9000-20000">9,000 - 20,000</option>
-            <option className="bg-[var(--color-onyx)] text-[var(--color-softwhite)]" value="20000+">&gt;20,000</option>
+            <option className="bg-white text-[#5D4037]" value="NIL">NIL</option>
+            <option className="bg-white text-[#5D4037]" value="1000-6000">1,000 - 6,000</option>
+            <option className="bg-white text-[#5D4037]" value="6000-9000">6,000 - 9,000</option>
+            <option className="bg-white text-[#5D4037]" value="9000-20000">9,000 - 20,000</option>
+            <option className="bg-white text-[#5D4037]" value="20000+">&gt;20,000</option>
           </select>
         </div>
       </div>
-      {/* Next Button - Centered */}
-      {/* <div className="flex justify-center mt-12">
-        <button 
-          onClick={nextStep}
-          className="
-            px-8 py-3 rounded-xl font-semibold text-lg text-white 
-            bg-[var(--color-electric)] hover:bg-[var(--color-electric)]/90 
-            shadow-lg shadow-[var(--color-electric)]/40 
-            transition duration-300 transform hover:scale-[1.01]
-          "
-        >
-          Next
-        </button>
-      </div> */}
-  <div className="flex justify-between">
-        <button onClick={prevStep} className="text-[var(--color-mutedgray)] hover:text-[var(--color-electric)]">Back</button>
+
+      {/* Navigation Buttons */}
+      <div className="flex justify-between">
+        <button onClick={prevStep} className="text-[#5D4037] hover:text-[#8B7355] transition-colors">Back</button>
         <button 
           onClick={nextStep}
           disabled={!formData.companyName.trim()}
-          className="btn-primary px-6 py-2 disabled:opacity-50"
-        >Next</button>
+          className="bg-[#8B7355] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#6D4C41] disabled:opacity-50 transition-colors"
+        >
+          Next
+        </button>
       </div>
-      
     </div>
   );
 }
