@@ -1,25 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-midnight: #0A0E17;
-  --color-onyx: #111826;
-  --color-electric: #00AFFF;
-  --color-aqua: #00FFF7;
-  --color-softwhite: #E6F1FF;
-  --color-mutedgray: #94A3B8;
+  --color-brown-dark: #3E2723;
+  --color-brown-medium: #5D4037;
+  --color-brown-primary: #8B7355;
+  --color-brown-light: #A1887F;
+  --color-brown-accent: #D7A86E;
+  --color-beige-light: #F5F0ED;
+  --color-beige-border: #D7CCC8;
   
-  --bg-gradient-midnight: linear-gradient(135deg, #0A0E17 0%, #111826 100%);
+  --bg-gradient-beige: linear-gradient(135deg, #F5F0ED 0%, #f0e6df 100%);
 }
 
 body {
-  background-color: var(--color-midnight);
-  color: var(--color-softwhite);
+  background-color: var(--color-beige-light);
+  color: var(--color-brown-dark);
 }
 
 /* Custom utility classes */
 .btn-primary {
-  background: var(--color-electric);
-  color: var(--color-midnight);
+  background: var(--color-brown-primary);
+  color: white;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -29,13 +30,14 @@ body {
 }
 
 .btn-primary:hover {
+  background: var(--color-brown-medium);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 175, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(139, 115, 85, 0.3);
 }
 
 .btn-secondary {
-  border: 1px solid var(--color-mutedgray);
-  color: var(--color-softwhite);
+  border: 1px solid var(--color-beige-border);
+  color: var(--color-brown-medium);
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -45,8 +47,8 @@ body {
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-electric);
-  color: var(--color-electric);
+  border-color: var(--color-brown-primary);
+  color: var(--color-brown-primary);
 }
 
 .card-hover {
@@ -55,7 +57,7 @@ body {
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 25px rgba(0, 175, 255, 0.1);
+  box-shadow: 0 20px 25px rgba(139, 115, 85, 0.1);
 }
 
 /* Container utility */
