@@ -64,7 +64,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-[#5D4037] pt-6 md:pt-8 text-center">
           <p className="text-[#F5F0ED] text-sm md:text-base">
-            &copy; 2024 Value(ode. Built with React, n8n & Supabase.
+            &copy; 2025 Value(ode. Built with React, n8n & Supabase.
           </p>
         </div>
       </div>

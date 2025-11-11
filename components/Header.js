@@ -36,9 +36,15 @@ export default function Header() {
           
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="bg-[#A1887F] text-white text-sm px-4 py-2 rounded-md hover:bg-[#8B7355] transition-colors duration-300">
+            {/* <button className="bg-[#A1887F] text-white text-sm px-4 py-2 rounded-md hover:bg-[#8B7355] transition-colors duration-300">
               Login
-            </button>
+            </button> */}
+            <Link
+              href="/login"
+              className="bg-[#A1887F] text-white text-sm px-4 py-2 rounded-md hover:bg-[#8B7355] transition-colors duration-300"
+            >
+              Login
+            </Link>
             <button className="bg-[#8B7355] text-white text-sm px-4 py-2 rounded-md hover:bg-[#6D4C41] transition-colors duration-300">
               Get Started
             </button>
@@ -70,10 +76,18 @@ export default function Header() {
                 Agent Store
               </a>
               <div className="flex flex-col space-y-2 pt-4">
-                <button className="bg-[#A1887F] text-white text-sm px-4 py-2 w-full rounded-md hover:bg-[#8B7355] transition-colors duration-300">
+                {/* <button className="bg-[#A1887F] text-white text-sm px-4 py-2 w-full rounded-md hover:bg-[#8B7355] transition-colors duration-300">
                   Login
-                </button>
-                <button className="bg-[#8B7355] text-white text-sm px-4 py-2 w-full rounded-md hover:bg-[#6D4C41] transition-colors duration-300">
+                </button> */}
+                <Link
+                  href="/login"
+                  className="bg-[#A1887F] text-white text-sm px-4 py-2 w-full rounded-md hover:bg-[#8B7355] transition-colors duration-300"
+                >
+                  Login
+                </Link>
+
+                <button classNam
+                e="bg-[#8B7355] text-white text-sm px-4 py-2 w-full rounded-md hover:bg-[#6D4C41] transition-colors duration-300">
                   Get Started
                 </button>
               </div>
