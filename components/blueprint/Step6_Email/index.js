@@ -1107,43 +1107,29 @@ export default function Step6_Email({ formData, setFormData, prevStep, isSubmitt
       setIsGenerating(false);
     }
   };
-
   const handleSendEmail = async () => {
   if (!submissionData) return;
   setIsSendingEmail(true);
 
-  // Create digitalPresence array from individual platform fields
   const digitalPresence = [];
-  if (submissionData.hasWebsite) digitalPresence.push('Website');
-  if (submissionData.hasGmail) digitalPresence.push('Gmail');
-  if (submissionData.hasFacebook) digitalPresence.push('Facebook');
-  if (submissionData.hasInstagram) digitalPresence.push('Instagram');
-  if (submissionData.hasLinkedIn) digitalPresence.push('LinkedIn');
-  if (submissionData.hasTwitter) digitalPresence.push('Twitter');
-  if (submissionData.hasWhatsApp) digitalPresence.push('WhatsApp');
-  if (submissionData.hasPinterest) digitalPresence.push('Pinterest');
-  if (submissionData.hasYoutube) digitalPresence.push('YouTube');
+  if (submissionData.hasWebsite) digitalPresence.push("Website");
+  if (submissionData.hasGmail) digitalPresence.push("Gmail");
+  if (submissionData.hasFacebook) digitalPresence.push("Facebook");
+  if (submissionData.hasInstagram) digitalPresence.push("Instagram");
+  if (submissionData.hasLinkedIn) digitalPresence.push("LinkedIn");
+  if (submissionData.hasTwitter) digitalPresence.push("Twitter");
+  if (submissionData.hasWhatsApp) digitalPresence.push("WhatsApp");
+  if (submissionData.hasPinterest) digitalPresence.push("Pinterest");
+  if (submissionData.hasYoutube) digitalPresence.push("YouTube");
 
-  // Use monthlyAdSpend as monthlySpend
   const monthlySpend = submissionData.monthlyAdSpend;
+  const { companyName, businessType, features, challenges, improvements, email } = submissionData;
 
-  // Now destructure with the actual fields
-  const {
-    companyName,
-    businessType,
-    features,
-    challenges,
-    improvements,
-    email
-  } = submissionData;
-
-  // Helper to handle array/string fields
   const formatList = (value) => {
     if (!value || (Array.isArray(value) && value.length === 0)) return "None specified";
     return Array.isArray(value) ? value.join(", ") : value;
   };
 
-  // Full natural-language summary string for AI
   const inputSummary = `
 This AI SaaS blueprint is prepared for ${companyName || "an unspecified company"} operating in the ${businessType || "unspecified"} industry.
 The company currently has a digital presence that includes ${formatList(digitalPresence)} and spends around ${monthlySpend || "an unspecified amount"} per month on advertisements.
@@ -1156,31 +1142,32 @@ The blueprint should be sent to the following email address: ${email || "not pro
 `.trim();
 
   try {
-    // --- TEST MODE (Webhook commented out) ---
-    console.log("📨 Simulated sending to:", email);
+    console.log("📨 Sending to webhook:", email);
     console.log("🧠 AI Prompt Summary:\n", inputSummary);
 
-    /*
-    // --- Actual call to n8n webhook (Uncomment later) ---
-    await fetch("https://your-n8n-webhook-url-here", {
+    // ✅ Store the response
+    const response = await fetch("/api/send_n8n", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        inputSummary // single string value for AI
-      })
+      body: JSON.stringify({ email, inputSummary }),
     });
-    */
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    alert(`✅ Test Mode: Sent formatted AI summary to ${email}`);
+    if (!response.ok) {
+      throw new Error(`Webhook error: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    console.log("✅ Webhook response:", result);
+    alert(`✅ Blueprint successfully sent to ${email}`);
   } catch (error) {
-    console.error("Error during test send:", error);
-    alert("❌ Test Mode: Failed to simulate webhook send.");
+    console.error("❌ Webhook send failed:", error);
+    alert("Error sending to webhook. Check console for details.");
   } finally {
     setIsSendingEmail(false);
   }
 };
+
+
   if (showBlueprint && submissionData) {
     return (
       <div className="min-h-screen bg-[#F5F0ED] py-10 px-4">

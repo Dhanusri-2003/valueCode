@@ -98,11 +98,11 @@ export default function HeroCycle() {
   return (
     <section 
       className="bg-gradient-to-br from-[#F5F0ED] to-[#f0e6df] py-16 md:py-10 relative bg-cover bg-center bg-no-repeat"
-      style={{
-        // 🚨 Change 'BG_Hero.png' to your new file name:
-        backgroundImage: "url('/images/Hero_img.png')", 
-        backgroundBlendMode: "overlay"
-      }}
+      // style={{
+      //   // 🚨 Change 'BG_Hero.png' to your new file name:
+      //   backgroundImage: "url('/images/Hero_img.png')", 
+      //   backgroundBlendMode: "overlay"
+      // }}
     >
       {/* Optional overlay for better text readability */}
       <div className="absolute inset-0 bg-white/20"></div>
