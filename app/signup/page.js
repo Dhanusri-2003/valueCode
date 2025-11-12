@@ -10,16 +10,34 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
+  // const handleSignup = async () => {
+  //   const { error } = await supabase.auth.signUp({ email, password });
+
+  //   if (error) {
+  //     setErrorMsg(error.message);
+  //     return;
+  //   }
+
+  //   router.push("/login"); // ✅ After signup → go to login
+  // };
   const handleSignup = async () => {
-    const { error } = await supabase.auth.signUp({ email, password });
-
-    if (error) {
-      setErrorMsg(error.message);
-      return;
+  const { error } = await supabase.auth.signUp(
+    {
+      email,
+      password,
+    },
+    {
+      emailRedirectTo: `${window.location.origin}/login`, // redirects to login after email confirmation
     }
+  );
 
-    router.push("/login"); // ✅ After signup → go to login
-  };
+  if (error) {
+    alert(error.message);
+  } else {
+    alert('Check your email for the confirmation link!');
+  }
+};
+
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100 px-4">
