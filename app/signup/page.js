@@ -20,24 +20,40 @@ export default function Signup() {
 
   //   router.push("/login"); // ✅ After signup → go to login
   // };
-  const handleSignup = async () => {
-  const { error } = await supabase.auth.signUp(
-    {
-      email,
-      password,
+ const baseURL = process.env.NEXT_PUBLIC_SITE_URL;
+
+// const handleSignup = async () => {
+  // const { data, error } = await supabase.auth.signUp({
+  //   email,
+  //   password,
+  //   options: {
+  //     emailRedirectTo: `${baseURL}/login`
+  //   }
+  // });
+const handleSignup = async (e) => {
+  e.preventDefault();
+
+  const redirectUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://www.valuecode.in/login'
+      : 'http://localhost:3001/login';
+
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: redirectUrl,
     },
-    {
-      emailRedirectTo: `${window.location.origin}/login`, // redirects to login after email confirmation
-    }
-  );
+  });
 
   if (error) {
+    console.error('Signup error:', error.message);
     alert(error.message);
-  } else {
-    alert('Check your email for the confirmation link!');
+    return;
   }
-};
 
+  alert('Check your email for a confirmation link.');
+};
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100 px-4">
