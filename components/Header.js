@@ -45,9 +45,9 @@ export default function Header() {
             >
               Login
             </Link>
-            <button className="bg-[#8B7355] text-white text-sm px-4 py-2 rounded-md hover:bg-[#6D4C41] transition-colors duration-300">
+            {/* <button className="bg-[#8B7355] text-white text-sm px-4 py-2 rounded-md hover:bg-[#6D4C41] transition-colors duration-300">
               Get Started
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Menu Button */}

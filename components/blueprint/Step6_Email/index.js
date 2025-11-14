@@ -1211,23 +1211,23 @@ The blueprint should be sent to the following email address: ${email || "not pro
 
           <div className="text-center mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
+              {/* <button
                 onClick={() => window.location.href = '/'}
                 className="bg-[#8B7355] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#6D4C41] transition-colors"
               >
                 Return to Homepage
-              </button>
+              </button> */}
               <button
                 onClick={handleSendEmail}
                 disabled={isSendingEmail}
                 className="border border-[#8B7355] text-[#8B7355] px-8 py-3 rounded-lg font-semibold hover:bg-[#8B7355] hover:text-white disabled:opacity-50 transition-colors"
               >
-                {isSendingEmail ? '📨 Sending (Test Mode)...' : '📩 Send to Webhook (Test Mode)'}
+                {isSendingEmail ? '📨 Sending..' : '📩 Send email'}
               </button>
             </div>
-            <p className="text-[#5D4037] text-sm mt-2">
+            {/* <p className="text-[#5D4037] text-sm mt-2">
               Test Mode — formatted string printed in console. Webhook disabled until URL is added.
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
