@@ -83,7 +83,7 @@ export default function Login() {
       setErrorMsg(error.message);
       return;
     }
-    router.push("/welcome"); // redirect to home
+    router.push("/dashboard"); // redirect to home
   };
 
   return (

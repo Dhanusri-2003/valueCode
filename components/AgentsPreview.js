@@ -1,30 +1,83 @@
 export default function AgentsPreview() {
+  // const agents = [
+  //   {
+  //     icon: '🚀',
+  //     title: 'Founder Assistant',
+  //     description: 'Your AI co-founder for daily operations and decision support.',
+  //     features: ['Calendar & meeting management', 'Voice command integration', 'Task prioritization']
+  //   },
+  //   {
+  //     icon: '📧',
+  //     title: 'Email Automation',
+  //     description: 'Intelligent email management that learns your communication style.',
+  //     features: ['Auto-response & categorization', 'Sentiment analysis', 'Priority inbox management']
+  //   },
+  //   {
+  //     icon: '💬',
+  //     title: 'WhatsApp Agent',
+  //     description: 'Automate customer conversations and support at scale.',
+  //     features: ['24/7 customer support', 'Lead qualification', 'Multi-language responses']
+  //   },
+  //   // {
+  //   //   icon: '💰',
+  //   //   title: 'Accounting Assistant',
+  //   //   description: 'Automate financial operations and gain real-time insights.',
+  //   //   features: ['Invoice processing', 'Expense categorization', 'Financial reporting']
+  //   // }
+  // ];
   const agents = [
-    {
-      icon: '🚀',
-      title: 'Founder Assistant',
-      description: 'Your AI co-founder for daily operations and decision support.',
-      features: ['Calendar & meeting management', 'Voice command integration', 'Task prioritization']
-    },
-    {
-      icon: '📧',
-      title: 'Email Automation',
-      description: 'Intelligent email management that learns your communication style.',
-      features: ['Auto-response & categorization', 'Sentiment analysis', 'Priority inbox management']
-    },
-    {
-      icon: '💬',
-      title: 'WhatsApp Agent',
-      description: 'Automate customer conversations and support at scale.',
-      features: ['24/7 customer support', 'Lead qualification', 'Multi-language responses']
-    },
-    {
-      icon: '💰',
-      title: 'Accounting Assistant',
-      description: 'Automate financial operations and gain real-time insights.',
-      features: ['Invoice processing', 'Expense categorization', 'Financial reporting']
-    }
-  ];
+  {
+    icon: '📧',
+    title: 'Email Agent',
+    description: 'Automates high-quality email creation, personalization, and outreach.',
+    features: [
+      'Bulk & targeted email campaigns',
+      'Personalized copy generation',
+      'Follow-ups, reminders, and proposals'
+    ]
+  },
+  {
+    icon: '💬',
+    title: 'WhatsApp Agent',
+    description: 'Handles customer conversations, lead nurturing, and automated replies on WhatsApp.',
+    features: [
+      '24/7 automated chat handling',
+      'Lead capture & qualification',
+      'Template-based messaging'
+    ]
+  },
+  {
+    icon: '📱',
+    title: 'Social Media Agent',
+    description: 'Creates, schedules, and optimizes posts across all major platforms.',
+    features: [
+      'AI-generated posts & captions',
+      'Scheduling & auto-publishing',
+      'Hashtag and trend optimization'
+    ]
+  },
+  {
+    icon: '📄',
+    title: 'Research Agent',
+    description: 'Finds, summarizes, and organizes information from reliable sources.',
+    features: [
+      'Competitor & market research',
+      'Summaries and comparisons',
+      'Data extraction & insights'
+    ]
+  },
+  {
+    icon: '💎',
+    title: 'Lead Generation Agent',
+    description: 'Discovers potential customers and automates outreach workflows.',
+    features: [
+      'Prospect discovery',
+      'Qualification scoring',
+      'Multi-step outreach sequences'
+    ]
+  }
+];
+
   return (
     <section id="AgentsPreview" className="py-16 md:py-24 bg-[#F5F0ED]">
       <div className="container mx-auto px-4">
